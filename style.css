@@ -1,0 +1,35 @@
+#shell {
+    background-color: grey;
+    max-width: fit-content;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, auto); 
+    gap: 5px;
+    justify-items: center;
+    align-items: center;
+    padding: 10px;
+}
+
+#display {
+    display: flex;
+    grid-column: span 4; /* Span all 4 columns */
+    width: 97%;
+    height: 40px;
+}
+
+#shell button {
+    padding: 10px;
+    border: 1px solid #ccc;
+    width: 60px; /* Adjust button width */
+    height: 60px; /* Adjust button height */
+}
+
+#equal {
+    padding: 10px;
+    border: 1px solid #ccc;
+    width: 120px;
+}
+
+#multiply, #minus, #plus, #divide {
+    background-color: orange;
+}
