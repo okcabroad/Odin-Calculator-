@@ -1,3 +1,4 @@
+
 #shell {
     background-color: grey;
     max-width: fit-content;
@@ -28,6 +29,11 @@
     padding: 10px;
     border: 1px solid #ccc;
     width: 120px;
+    background-color: lightblue;
+}
+
+#clear {
+    background-color: coral;
 }
 
 #multiply, #minus, #plus, #divide {
