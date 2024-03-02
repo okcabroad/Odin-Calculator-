@@ -1,25 +1,41 @@
-const display = document.getElementById('display')
+//makes the display equal to the input box of the calculator 
+const display = document.getElementById('display');
 
-function appendToDisplay(value){
+function appendToDisplay(value) {
     display.value += value;
 }
 
-function clearDisplay(){
-    display.value = " "
+function clearDisplay() {
+    display.value = '';
 }
-//three variables: first number, operator, second number 
-let firstNum = ""
-let operator = ""
-let secondNum = ""
 
-//function that takes an operator and 2 numbers 
-function operate(firstNum, operator, secondNum){
-    let result = "0";
-    //check if second number is zero for division
-    if (operator === '/' && secondNum === 0) {
-        return "Error: Cannot divide by zero";
+function operate() {
+    const input = display.value.trim();
+const pattern = /(-?\d+(\.\d+)?)([-+*/])(-?\d+(\.\d+)?)/;
+    const match = input.match(pattern);
+
+    if (match) {
+        const firstNum = match[1];
+        const operator = match[3];
+        const secondNum = match[4];
+        const result = calculate(firstNum, operator, secondNum);
+        display.value = result;
+    } else {
+        display.value = 'Invalid input';
     }
-    switch(operator) {
+}
+
+function calculate(firstNum, operator, secondNum) {
+    let result = 0;
+
+    firstNum = parseFloat(firstNum);
+    secondNum = parseFloat(secondNum);
+
+    if (operator === '/' && secondNum === 0) {
+        return 'Error: Cannot divide by zero';
+    }
+
+    switch (operator) {
         case '+':
             result = firstNum + secondNum;
             break;
@@ -33,13 +49,9 @@ function operate(firstNum, operator, secondNum){
             result = firstNum / secondNum;
             break;
         default:
-            return "Error..."
+            return 'Error: Invalid operator';
     }
     return result;
-
 }
-
-
-
 
 
