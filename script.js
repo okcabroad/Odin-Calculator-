@@ -11,7 +11,10 @@ function clearDisplay() {
 
 function operate() {
     const input = display.value.trim();
+    //This was the origional regex patter: /(\d+(\.\d+)?)([-+*/])(\d+(\.\d+)?)/
+    //Minus regex was added 
 const pattern = /(-?\d+(\.\d+)?)([-+*/])(-?\d+(\.\d+)?)/;
+
     const match = input.match(pattern);
 
     if (match) {
